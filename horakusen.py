@@ -1,6 +1,8 @@
-
 import matplotlib.pyplot as plt
 import numpy as np
+
+def f(x, t):
+    return t * x - t**2
 
 def subplots():
     "Custom subplots with axes throught the origin"
@@ -18,8 +20,7 @@ def subplots():
 
 fig, ax = subplots()  # Call the local version, not plt.subplots()
 x = np.linspace(-2, 10, 200)
-y = np.sin(x)
+y = f(x, t=1)
 ax.plot(x, y, 'r-', linewidth=2, label='sine function', alpha=0.6)
 ax.legend(loc='lower right')
 plt.show()
-
