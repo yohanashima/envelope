@@ -42,14 +42,24 @@ def f(x, t):
     return t * x - t**2
 
 # 変数
-p = 5    #xの範囲　-p<=x<=p (左右対称にするため)
-r = 2    #tの範囲　-r<=t<=r (同上)
-n = 12   #接線の本数
+savever = 'png' # 'png' or 'pdf'
+fignum = 3 # 0 or 1
 
+if fignum == 0:  
+    p = 5    #xの範囲　-p<=x<=p (左右対称にするため)
+    r = 2    #tの範囲　-r<=t<=r (同上)
+    n = 12   #接線の本数
+
+if fignum == 1:
+    p = 5
+    r = 3
+    n = 30
+	
 # 包絡線を作る
 x = np.linspace(-p,p,2)    # 直線なのでプロットする点は２点でいいかと。xはリストと同じ性質(?)なのに、どうしてf関数のxに入れるのかわかりません。(arrayだから？)
 t = np.linspace(-r,r,n)  # 傾きはn-1等分で均等に。lispaceで範囲内をn-1等分したarray(配列？)を用意。
 for i in t:
 	y = f(x, t=i)
 	ax.plot(x, y, 'k-', linewidth=1.0, alpha=0.6)
+plt.savefig('envelope' + str(fignum) + '.' + savever)
 plt.show()
