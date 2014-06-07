@@ -43,7 +43,7 @@ def f(x, t):
 
 # 変数
 savever = 'png' # 'png' or 'pdf'
-fignum = 3 # 0 or 1
+fignum = 0 # 0 or 1
 
 if fignum == 0:  
     p = 5    #xの範囲　-p<=x<=p (左右対称にするため)
